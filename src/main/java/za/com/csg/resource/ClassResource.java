@@ -35,8 +35,8 @@ public class ClassResource {
     }
 
     @RequestMapping(value = {"/classes"}, method = {RequestMethod.GET}, produces = {"application/json"})
-    @ApiOperation(value = "Get Students", response = UserModel.class, responseContainer = "List")
-    @ApiResponses({@ApiResponse(code = 200, message = "Successful reminder search", response = UserModel.class, responseContainer = "List"), @ApiResponse(code = 404, message = "Reminder does not found", response = ExceptionResponseType.class), @ApiResponse(code = 500, message = "Internal server error", response = ExceptionResponseType.class)})
+    @ApiOperation(value = "Get Students", response = ClassModel.class, responseContainer = "List")
+    @ApiResponses({@ApiResponse(code = 200, message = "Successful reminder search", response = ClassModel.class, responseContainer = "List"), @ApiResponse(code = 404, message = "Reminder does not found", response = ExceptionResponseType.class), @ApiResponse(code = 500, message = "Internal server error", response = ExceptionResponseType.class)})
     public List<ClassModel> getStudents() throws Exception {
         return this.classService.getClasses();
     }

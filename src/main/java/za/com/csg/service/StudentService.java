@@ -2,7 +2,6 @@ package za.com.csg.service;
 
 import za.com.csg.model.ActionStatusType;
 import za.com.csg.model.StudentModel;
-import za.com.csg.model.UserModel;
 
 import javax.mail.MessagingException;
 import java.io.IOException;

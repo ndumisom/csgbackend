@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.com.csg.model.ActionStatusType;
 import za.com.csg.model.StudentModel;
-import za.com.csg.model.UserModel;
 import za.com.csg.model.exception.ExceptionResponseType;
 import za.com.csg.service.StudentService;
 
@@ -30,7 +29,7 @@ public class StudentResource {
     }
 
     @RequestMapping(value = {"/student/{studentId}"}, method = {RequestMethod.GET}, produces = {"application/json"})
-    @ApiResponses({@ApiResponse(code = 200, message = "Successful User search", response = UserModel.class), @ApiResponse(code = 404, message = "User does not found", response = ExceptionResponseType.class), @ApiResponse(code = 500, message = "Internal server error", response = ExceptionResponseType.class)})
+    @ApiResponses({@ApiResponse(code = 200, message = "Successful User search", response = StudentModel.class), @ApiResponse(code = 404, message = "User does not found", response = ExceptionResponseType.class), @ApiResponse(code = 500, message = "Internal server error", response = ExceptionResponseType.class)})
     public StudentModel getUser(@ApiParam(name = "studentId", value = "studentId", required = true) @PathVariable Integer studentId) {
         return this.studentService.getStudent(studentId);
     }
@@ -43,8 +42,8 @@ public class StudentResource {
     }
 
     @RequestMapping(value = {"/students"}, method = {RequestMethod.GET}, produces = {"application/json"})
-    @ApiOperation(value = "Get Students", response = UserModel.class, responseContainer = "List")
-    @ApiResponses({@ApiResponse(code = 200, message = "Successful reminder search", response = UserModel.class, responseContainer = "List"), @ApiResponse(code = 404, message = "Reminder does not found", response = ExceptionResponseType.class), @ApiResponse(code = 500, message = "Internal server error", response = ExceptionResponseType.class)})
+    @ApiOperation(value = "Get Students", response = StudentModel.class, responseContainer = "List")
+    @ApiResponses({@ApiResponse(code = 200, message = "Successful reminder search", response = StudentModel.class, responseContainer = "List"), @ApiResponse(code = 404, message = "Reminder does not found", response = ExceptionResponseType.class), @ApiResponse(code = 500, message = "Internal server error", response = ExceptionResponseType.class)})
     public List<StudentModel> getStudents() throws Exception {
         return this.studentService.getStudents();
     }
